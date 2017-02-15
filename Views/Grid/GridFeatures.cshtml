@@ -1,0 +1,29 @@
+﻿@using ServerSidePaging
+@{
+    ViewBag.Title = "GridFeatures";
+}
+
+<div id="Grid"></div>
+<script type="text/javascript">
+        $(function () {
+            $("#Grid").ejGrid({
+                // the datasource "window.gridData" is referred from jsondata.min.js
+                dataSource: ej.DataManager({
+                  url: "Grid/DataSource2",
+                    adaptor: new ej.UrlAdaptor()
+                }),
+                toolbarSettings: { showToolbar: true, toolbarItems: ["search"] },
+                allowPaging: true,
+              allowSorting: true,
+                columns: [
+                         { field: "OrderID", isPrimaryKey: true, headerText: "Order ID", textAlign: ej.TextAlign.Right, validationRules: { required: true, number: true }, width: 90 },
+                         { field: "CustomerID", headerText: 'Customer ID', validationRules: { required: true, minlength: 3 }, width: 90 },
+                         { field: "Freight", headerText: 'Freight', format: "{0:C}", textAlign: ej.TextAlign.Right, editType: ej.Grid.EditingType.Numeric, editParams: { decimalPlaces: 2 }, validationRules: { range: [0, 1000] }, width: 75 },
+                         { field: "ShipCountry", headerText: "Ship Country", editType: ej.Grid.EditingType.Dropdown, width: 85 },
+                         { field: "ShipCity", headerText: 'Ship City', width: 90 }
+                ]
+            });
+
+        });
+
+</script>
