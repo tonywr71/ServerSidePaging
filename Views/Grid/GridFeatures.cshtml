@@ -14,7 +14,8 @@
                 }),
                 toolbarSettings: { showToolbar: true, toolbarItems: ["search"] },
                 allowPaging: true,
-              allowSorting: true,
+                allowSorting: true,
+              allowGrouping: true,
                 columns: [
                          { field: "OrderID", isPrimaryKey: true, headerText: "Order ID", textAlign: ej.TextAlign.Right, validationRules: { required: true, number: true }, width: 90 },
                          { field: "CustomerID", headerText: 'Customer ID', validationRules: { required: true, minlength: 3 }, width: 90 },
